@@ -7,10 +7,18 @@ import { Button } from "@/components/ui/button"
 import { ChevronLeft, ChevronRight, Info } from "lucide-react"
 import Image from "next/image"
 
+interface WeekInfo {
+  title: string;
+  description: string;
+  size: string;
+  image: string;
+  facts: string[];
+}
+
 export default function GestationTimeline() {
   const [currentWeek, setCurrentWeek] = useState(12)
 
-  const weekData = {
+  const weekData: { [key: number]: WeekInfo } = {
     4: {
       title: "Semana 4",
       description: "El embrión ahora mide aproximadamente 1/25 de pulgada. El tubo neural se está formando.",
@@ -125,7 +133,7 @@ export default function GestationTimeline() {
   }
 
   // Find the closest week in our data
-  const getClosestWeek = (week) => {
+  const getClosestWeek = (week: number) => {
     const weeks = Object.keys(weekData).map(Number)
     return weeks.reduce((prev, curr) => (Math.abs(curr - week) < Math.abs(prev - week) ? curr : prev))
   }
@@ -213,7 +221,7 @@ export default function GestationTimeline() {
             <div>
               <h4 className="font-medium mb-2">Desarrollos Clave</h4>
               <ul className="space-y-1">
-                {data.facts.map((fact, index) => (
+                {data.facts.map((fact: string, index: number) => (
                   <li key={index} className="flex items-start gap-2">
                     <span className="text-primary mt-1">•</span>
                     <span>{fact}</span>

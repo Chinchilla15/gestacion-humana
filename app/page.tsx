@@ -7,7 +7,6 @@ import Link from "next/link"
 import GestationTimeline from "@/components/gestation-timeline"
 import InteractiveDevelopmentCard from "@/components/interactive-development-card"
 import TrimesterSection from "@/components/trimester-section"
-import FetalDevelopmentViewer from "@/components/fetal-development-viewer"
 import GestationChatbot from "@/components/gestation-chatbot"
 
 export default function GestationLearningPage() {
@@ -64,29 +63,6 @@ export default function GestationLearningPage() {
           </div>
           <div className="mt-16">
             <GestationTimeline />
-          </div>
-        </div>
-      </section>
-
-      {/* 3D Model Viewer Section */}
-      <section className="w-full py-12 md:py-24 bg-slate-50">
-        <div className="container px-4 md:px-6">
-          <div className="flex flex-col items-center justify-center space-y-4 text-center">
-            <div className="space-y-2">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                Explorador 3D de Desarrollo Fetal
-              </h2>
-              <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                Interactúa con modelos 3D para visualizar el desarrollo fetal en diferentes etapas.
-              </p>
-            </div>
-          </div>
-
-          <div className="mt-12">
-            <FetalDevelopmentViewer />
-            <p className="mt-4 text-sm text-center text-muted-foreground">
-              Arrastra para rotar | Desplaza para zoom | Usa el deslizador para cambiar semanas
-            </p>
           </div>
         </div>
       </section>
