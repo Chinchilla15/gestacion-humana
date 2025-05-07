@@ -26,7 +26,8 @@ export default function TrimesterSection({
   const progressPercentage = (currentWeek / 40) * 100
 
   return (
-    <div className="grid gap-8 md:grid-cols-2">
+    // Changed md:grid-cols-2 to md:grid-cols-1 to make content take full width
+    <div className="grid gap-8 md:grid-cols-1">
       <div className="space-y-6">
         <div>
           <h3 className="text-2xl font-bold">{title}</h3>
@@ -59,25 +60,9 @@ export default function TrimesterSection({
             ))}
           </ul>
         </div>
-
-        <Button className="gap-2">
-          Saber Más <ArrowRight className="h-4 w-4" />
-        </Button>
       </div>
 
-      <div className="relative overflow-hidden rounded-lg">
-        <Image
-          src={image || "/placeholder.svg"}
-          width={500}
-          height={300}
-          alt={`Feto durante ${title}`}
-          className="h-full w-full object-cover"
-        />
-        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-4 text-white">
-          <h4 className="font-medium">{title}</h4>
-          <p className="text-sm text-white/80">Toca para explorar en 3D</p>
-        </div>
-      </div>
+      {/* Removed the div that previously held the image */}
     </div>
   )
 }

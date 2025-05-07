@@ -132,8 +132,8 @@ export default function GestationChatbot() {
     <Card className="w-full max-w-3xl mx-auto shadow-lg">
       <CardHeader className="bg-gradient-to-r from-rose-50 to-sky-50 border-b">
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <Avatar className="h-8 w-8 bg-primary">
+          <div className="flex items-center justify-center gap-2">
+            <Avatar className="h-8 w-8 flex items-center justify-center  bg-primary">
               <Bot className="h-4 w-4 text-primary-foreground" />
             </Avatar>
             <CardTitle className="text-lg">Guía de Gestación</CardTitle>
@@ -156,7 +156,7 @@ export default function GestationChatbot() {
               >
                 <div className="flex items-start gap-2 max-w-[80%]">
                   {message.sender === "bot" && (
-                    <Avatar className="h-8 w-8 mt-1 bg-primary">
+                    <Avatar className="h-8 w-8 flex items-center justify-center mt-1 bg-primary">
                       <Bot className="h-4 w-4 text-primary-foreground" />
                     </Avatar>
                   )}
@@ -171,7 +171,7 @@ export default function GestationChatbot() {
                     </p>
                   </div>
                   {message.sender === "user" && (
-                    <Avatar className="h-8 w-8 mt-1 bg-primary">
+                    <Avatar className="h-8 w-8 mt-1 flex items-center justify-center bg-primary">
                       <User className="h-4 w-4 text-primary-foreground" />
                     </Avatar>
                   )}
@@ -195,16 +195,6 @@ export default function GestationChatbot() {
               {qa.question}
             </Button>
           ))}
-        </div>
-        <div className="flex w-full gap-2">
-          <input
-            className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-            placeholder="Escribe tu pregunta (o haz clic en una sugerencia arriba)"
-            disabled
-          />
-          <Button size="icon" disabled>
-            <SendIcon className="h-4 w-4" />
-          </Button>
         </div>
       </CardFooter>
     </Card>

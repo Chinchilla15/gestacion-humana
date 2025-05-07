@@ -26,7 +26,7 @@ export default function InteractiveDevelopmentCard({
   const [isExpanded, setIsExpanded] = useState(false)
 
   return (
-    <Card className="overflow-hidden transition-all duration-200 hover:shadow-md">
+    <Card className="flex flex-col h-full overflow-hidden transition-all duration-200 hover:shadow-md">
       <CardHeader className="pb-3">
         <div className="flex items-center gap-2">
           {icon}
@@ -34,7 +34,7 @@ export default function InteractiveDevelopmentCard({
         </div>
         <CardDescription>{weeks}</CardDescription>
       </CardHeader>
-      <CardContent>
+      <CardContent className="flex-grow">
         <p>{description}</p>
 
         <AnimatePresence>
@@ -59,7 +59,7 @@ export default function InteractiveDevelopmentCard({
           )}
         </AnimatePresence>
       </CardContent>
-      <CardFooter>
+      <CardFooter className="mt-auto">
         <Button variant="ghost" className="w-full justify-between" onClick={() => setIsExpanded(!isExpanded)}>
           <span>{isExpanded ? "Mostrar Menos" : "Mostrar Más"}</span>
           {isExpanded ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}

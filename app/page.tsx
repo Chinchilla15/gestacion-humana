@@ -8,13 +8,14 @@ import GestationTimeline from "@/components/gestation-timeline"
 import InteractiveDevelopmentCard from "@/components/interactive-development-card"
 import TrimesterSection from "@/components/trimester-section"
 import GestationChatbot from "@/components/gestation-chatbot"
+import ThreeScene from "@/components/ThreeScene"
 
 export default function GestationLearningPage() {
   return (
     <div className="flex min-h-screen flex-col">
       {/* Hero Section */}
       <section className="relative w-full bg-gradient-to-r from-rose-50 to-sky-50 py-20 md:py-28">
-        <div className="container px-4 md:px-6">
+        <div className=" px-4 md:px-6">
           <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
             <div className="flex flex-col justify-center space-y-4">
               <div className="space-y-2">
@@ -26,9 +27,11 @@ export default function GestationLearningPage() {
                 </p>
               </div>
               <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                <Button size="lg" className="gap-1">
-                  Comenzar Viaje <ChevronRight className="h-4 w-4" />
-                </Button>
+                <Link href="#interactive-timeline" passHref>
+                  <Button size="lg" className="gap-1">
+                    Comenzar Viaje <ChevronRight className="h-4 w-4" />
+                  </Button>
+                </Link>
                 <Button size="lg" variant="outline" className="gap-1">
                   <Info className="h-4 w-4" /> Saber Más
                 </Button>
@@ -36,14 +39,7 @@ export default function GestationLearningPage() {
             </div>
             <div className="flex items-center justify-center">
               <div className="relative h-[300px] w-[300px] overflow-hidden rounded-full border-8 border-white shadow-xl sm:h-[350px] sm:w-[350px] md:h-[400px] md:w-[400px]">
-                <Image
-                  src="/placeholder.svg?height=400&width=400"
-                  width={400}
-                  height={400}
-                  alt="Ilustración de desarrollo fetal"
-                  className="object-cover"
-                  priority
-                />
+                <ThreeScene />
               </div>
             </div>
           </div>
@@ -51,8 +47,8 @@ export default function GestationLearningPage() {
       </section>
 
       {/* Interactive Timeline Section */}
-      <section className="w-full py-12 md:py-24 lg:py-32">
-        <div className="container px-4 md:px-6">
+      <section id="interactive-timeline" className="w-full py-12 md:py-24 lg:py-32">
+        <div className=" px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">El Viaje de la Vida</h2>
@@ -69,7 +65,7 @@ export default function GestationLearningPage() {
 
       {/* Trimester Breakdown */}
       <section className="w-full py-12 md:py-24">
-        <div className="container px-4 md:px-6">
+        <div className=" px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Trimestre por Trimestre</h2>
@@ -139,7 +135,7 @@ export default function GestationLearningPage() {
 
       {/* Interactive Development Cards */}
       <section className="w-full py-12 md:py-24 lg:py-32 bg-slate-50">
-        <div className="container px-4 md:px-6">
+        <div className=" px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
@@ -151,7 +147,7 @@ export default function GestationLearningPage() {
             </div>
           </div>
 
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 items-stretch">
             <InteractiveDevelopmentCard
               title="Desarrollo del Corazón"
               icon={<Heart className="h-8 w-8 text-rose-500" />}
@@ -229,7 +225,7 @@ export default function GestationLearningPage() {
 
       {/* Chatbot Section */}
       <section className="w-full py-12 md:py-24 lg:py-32">
-        <div className="container px-4 md:px-6">
+        <div className=" px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
@@ -248,8 +244,8 @@ export default function GestationLearningPage() {
       </section>
 
       {/* Resources Section */}
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-slate-50">
-        <div className="container px-4 md:px-6">
+      {/* <section className="w-full py-12 md:py-24 lg:py-32 bg-slate-50">
+        <div className=" px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Recursos Educativos</h2>
@@ -260,87 +256,38 @@ export default function GestationLearningPage() {
           </div>
 
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            <Card>
+            <Card className="sm:col-span-1 lg:col-span-1">
               <CardHeader>
                 <CardTitle>Biblioteca de Videos</CardTitle>
                 <CardDescription>Videos educativos seleccionados sobre embarazo y desarrollo fetal</CardDescription>
               </CardHeader>
-              <CardContent>
-                <Image
-                  src="/placeholder.svg?height=200&width=400"
-                  width={400}
-                  height={200}
-                  alt="Miniatura de biblioteca de videos"
-                  className="aspect-video rounded-lg object-cover"
-                />
-              </CardContent>
-              <CardFooter>
-                <Button className="w-full">Explorar Videos</Button>
-              </CardFooter>
             </Card>
 
-            <Card>
+            <Card className="sm:col-span-1 lg:col-span-1">
               <CardHeader>
                 <CardTitle>Artículos Científicos</CardTitle>
                 <CardDescription>
                   Recursos académicos e investigaciones recientes sobre desarrollo humano
                 </CardDescription>
               </CardHeader>
-              <CardContent>
-                <Image
-                  src="/placeholder.svg?height=200&width=400"
-                  width={400}
-                  height={200}
-                  alt="Miniatura de artículos científicos"
-                  className="aspect-video rounded-lg object-cover"
-                />
-              </CardContent>
-              <CardFooter>
-                <Button className="w-full" variant="outline">
-                  Acceder a Biblioteca
-                </Button>
-              </CardFooter>
             </Card>
 
-            <Card>
+            <Card className="sm:col-span-1 lg:col-span-1">
               <CardHeader>
                 <CardTitle>Herramientas Interactivas</CardTitle>
                 <CardDescription>Herramientas y calculadoras para el embarazo y desarrollo fetal</CardDescription>
               </CardHeader>
-              <CardContent>
-                <Image
-                  src="/placeholder.svg?height=200&width=400"
-                  width={400}
-                  height={200}
-                  alt="Miniatura de herramientas interactivas"
-                  className="aspect-video rounded-lg object-cover"
-                />
-              </CardContent>
-              <CardFooter>
-                <Button className="w-full">Explorar Herramientas</Button>
-              </CardFooter>
             </Card>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Footer */}
       <footer className="w-full border-t bg-white py-6">
-        <div className="container flex flex-col items-center justify-center gap-4 px-4 md:px-6 md:flex-row">
+        <div className=" flex flex-col items-center justify-center gap-4 px-4 md:px-6 md:flex-row">
           <p className="text-center text-sm text-muted-foreground md:text-left">
-            © {new Date().getFullYear()} Centro de Aprendizaje sobre Gestación Humana. Todos los derechos reservados.
+            © {new Date().getFullYear()} Universidad Evangélica de El Salvador.
           </p>
-          <nav className="flex gap-4 sm:gap-6">
-            <Link className="text-sm font-medium hover:underline underline-offset-4" href="#">
-              Términos
-            </Link>
-            <Link className="text-sm font-medium hover:underline underline-offset-4" href="#">
-              Privacidad
-            </Link>
-            <Link className="text-sm font-medium hover:underline underline-offset-4" href="#">
-              Contacto
-            </Link>
-          </nav>
         </div>
       </footer>
     </div>
